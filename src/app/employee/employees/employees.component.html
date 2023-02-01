@@ -1,1 +1,32 @@
-<p>employees works!</p>
+<pilot-grid-table [cols]="cols" [selectedColumns]="selectedColumns" [gridData]="gridData" [actionColumn]="true"
+    (action)="onAction($event)" (selectionChange)="onGridSelection($event)" [filters]="filters" [showFilterIcon]="true"
+    [createUrl]="'#'" [cardTemplate]="cardView">
+</pilot-grid-table>
+
+<ng-template #cardView let-item="item">
+    <div class="col-sm-12 col-lg-6 col-xl-4 my-2">
+        <div class="card border border-radius">
+            <div class="card-body">
+                <div class="h3 mb-2 border-bottom pb-2 mb-2">
+                    <i class="fa-solid fa-circle {{item.title}}"></i>
+                    {{item.title}}
+                </div>
+                <div class="card-subtitle mb-4">
+                    <div class="">{{item.catogory}}</div>
+                </div>
+                <div>
+                    <img [src]="item.thumbnail" class="img-fluid" style="height: 200px; width: 400px;" alt="img">
+                </div>
+                <!-- action buttons start -->
+                <div class="row">
+                    <div class="col text-end" *ngIf="item.actions">
+                        <button class="btn btn-circle btn-outline-light" *ngFor="let action of item.actions"
+                            (click)="onAction(action)" [title]="action.title" [pilotText]="action.text">
+                            <i [class]="action.icon"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
