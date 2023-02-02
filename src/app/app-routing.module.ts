@@ -18,6 +18,12 @@ const routes: Routes = [
   {
     path: 'products', loadChildren: () => import('./product/product.module').then(m => m.ProductModule)
   },
+  {
+    path: 'error',  loadChildren:() => import('./view/view.module').then(m => m.ViewModule)
+  },
+  {
+    path: '**', redirectTo: 'error/page-not-found', pathMatch: 'full'
+  }
 ];
 
 @NgModule({

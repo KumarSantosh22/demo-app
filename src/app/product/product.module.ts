@@ -4,10 +4,10 @@ import { CommonModule } from '@angular/common';
 
 import { ProductRoutingModule } from './product-routing.module';
 import { ProductsComponent } from './products/products.component';
-import { AditProductComponent } from './adit-product/adit-product.component';
+import { AditProductComponent } from './products/adit-product/adit-product.component';
 import { HomeComponent } from './home/home.component';
 import { GridTableModule, DirectivesModule } from 'cocoon-pilot';
-
+import { DialogModule } from 'primeng/dialog'
 
 @NgModule({
   declarations: [
@@ -19,6 +19,7 @@ import { GridTableModule, DirectivesModule } from 'cocoon-pilot';
     CommonModule,
     ProductRoutingModule,
     FormsModule,
+    DialogModule,
     GridTableModule,
     DirectivesModule
   ]

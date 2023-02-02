@@ -31,3 +31,8 @@
         </div>
     </div>
 </ng-template>
+
+<p-dialog header="Adit Form" [(visible)]="displayAditForm" [breakpoints]="{'960px': '75vw', '640px': '100vw'}"
+    [style]="{width: '65vw',height: '90vh'}" [maximizable]="true" [modal]="true" [showHeader]="true" appendTo="body">
+    <app-adit-product [aditId]="aditId" (saveOrExit)="closeForm($event)"></app-adit-product>
+</p-dialog>
